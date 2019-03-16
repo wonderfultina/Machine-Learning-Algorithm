@@ -133,5 +133,18 @@ CART回归树和CART分类树的建立算法大部分是类似的，所以这里
 
 ![16](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/16.png)
 
+用f2(x)拟合训练数据的平方误差是：
+
+![17](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/17.png)
+
+继续求得
+
+![18](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/18.png)
+
+用f6(x)拟合训练数据的平方损失误差是
+
+![19](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/19.png)
+
+假设此时已经满足误差要求，那么f(x)=f6(x)即为所求的回归树。
 
 
