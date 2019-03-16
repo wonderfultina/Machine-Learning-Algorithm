@@ -93,4 +93,44 @@ CART回归树和CART分类树的建立算法大部分是类似的，所以这里
 
 ![8](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/8.png)
 
+示例
+上面的东西有点难以理解，下面举个例子来说明。
+
+训练数据见下表，x的取值范围为区间[0.5,10.5],y的取值范围为区间[5.0,10.0],学习这个回归问题的最小二叉回归树。
+
+![9](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/9.png)
+
+
+求训练数据的切分点，根据所给数据，考虑如下切分点：
+1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5
+对各切分点，不难求出相应的R1 , R2 , c1 , c2及
+
+![10](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/10.png)
+
+例如，当s=1.5时，R1={1} , R2={2,3,…,10} , c1=5.56 , c2=7.50 
+
+![11](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/11.png)
+
+现将s及m(s)的计算结果列表如下：
+
+![12](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/12.png)
+
+由上表可知，当x=6.5的时候达到最小值，此时R1={1,2,…,6} , R2=7,8,9,10 , c1=6.24 , c2=8.9 , 所以回归树T1(x)为：
+
+![13](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/13.png)
+
+用f1(x)拟合训练数据的残差见下表，表中r2i=yi−f1(xi),i=1,2,…,10
+
+![14](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/14.png)
+
+
+用f1(x)拟合训练数据的平方误差：
+
+![15](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/15.png)
+
+第2步求T2(x).方法与求T1(x)一样，只是拟合的数据是上表的残差，可以得到
+
+![16](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/16.png)
+
+
 
