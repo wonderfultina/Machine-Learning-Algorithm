@@ -70,3 +70,27 @@ CART回归树和CART分类树的建立算法大部分是类似的，所以这里
 
 其中，c1为D1数据集的样本输出均值，c2为D2数据集的样本输出均值。
 对于决策树建立后做预测的方式，上面讲到了CART分类树采用叶子节点里概率最大的类别作为当前节点的预测类别。而回归树输出不是类别，它采用的是用最终叶子的均值或者中位数来预测输出结果。
+
+5.CART回归树的生成
+
+最小二叉回归树生成算法
+输入：训练数据集D；
+输出：回归树f(x)
+
+算法：
+(1)在训练数据集所在的输入空间中，递归地将每个区域划分为两个子区域并决定每个子区域上输出值，构建二叉决策树：
+选择最优切分变量j与切分点s，求解
+
+![6](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/6.png)
+
+遍历变量j，对固定的切分变量j扫描切分点s，选择使上式最小值的对(j,s)。其中Rm是被划分的输入空间，cm是空间Rm对应的固定输出值。
+(2)用选定的对(j,s)划分区域并决定相应的输出值：
+
+![7](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/7.png)
+
+(3)继续对两个子区域调用步骤（1），（2），直至满足停止条件。
+将输入空间划分为M个区域R1,R2,…,RM，生成决策树:
+
+![8](https://github.com/wonderfultina/Machine-Learning-Algorithm/blob/master/%E5%86%B3%E7%AD%96%E6%A0%91%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86/images/8.png)
+
+
