@@ -22,26 +22,43 @@ predict_log_proba和predict_proba类似，它会给出测试集样本在各个�
 举例：
 
 import numpy as np
+
 X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+
 Y = np.array([1, 1, 1, 2, 2, 2])
+
 from sklearn.naive_bayes import GaussianNB
+
 clf = GaussianNB()
+
 #拟合数据
+
 clf.fit(X, Y)
+
 print "==Predict result by predict=="
+
 print(clf.predict([[-0.8, -1]]))
+
 print "==Predict result by predict_proba=="
+
 print(clf.predict_proba([[-0.8, -1]]))
+
 print "==Predict result by predict_log_proba=="
+
 print(clf.predict_log_proba([[-0.8, -1]]))
 
 结果如下：
 
 ==Predict result by predict==
+
 [1]
+
 ==Predict result by predict_proba==
+
 [[  9.99999949e-01   5.05653254e-08]]
+
 ==Predict result by predict_log_proba==
+
 [[ -5.05653266e-08  -1.67999998e+01]]
 
 从上面的结果可以看出，测试样本[-0.8,-1]的类别预测为类别1。具体的测试样本[-0.8,-1]被预测为1的概率为9.99999949e-01 ，远远大于预测为2的概率5.05653254e-08。这也是为什么最终的预测结果为1的原因了。
